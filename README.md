@@ -1,16 +1,19 @@
 # auth_project
 
-A new Flutter project.
+<table class="iksweb">
+	<tbody>
+		<tr>
+			<td>
+			  <img src="https://github.com/SokolovAndr/auth_project/blob/main/gif.gif" width="360" height="780"/>
+			</td>
+		</tr>
+	</tbody>
+</table>
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Реализовано:
+1) Реализованы все CRUD (create, read, update, delete) операции для книг, авторов и жанров (взаимодействия с API);
+2) Реализована возможность выбора обложки книги из памяти телефона и создания обложки из фотографии, снятой камерой (работа с внутренними файлами и камерой устройства);
+3) Реализация быстрого доступа к часто используемым данным (изображения подгружаются из КЭШа);
+4) Разбиение по слоям согласно принципам Clean Architecture;
+5) Использование BLoC как инструмент state-management;
+6) Реализован функционал регистрации и аутентификации через Firebase сервис.
