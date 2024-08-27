@@ -3,7 +3,6 @@ import 'package:auth_project/data/model/genre_model.dart';
 import 'package:auth_project/data/model/image_model.dart';
 import 'package:flutter/material.dart';
 
-
 abstract class BookEvent {}
 
 class ReadBookEvent extends BookEvent {}

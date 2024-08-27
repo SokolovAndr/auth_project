@@ -42,5 +42,4 @@ class DataAuthor {
         "id": id,
         "name": name,
       };
-
 }

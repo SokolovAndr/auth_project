@@ -1,9 +1,9 @@
 import 'dart:io';
+import 'package:auth_project/services/snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
-import '../../constants/snack_bar.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 
@@ -40,7 +40,12 @@ class _AddImageScreenState extends State<AddImageScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Добавить Изображение'),
+        iconTheme: const IconThemeData(color: Colors.white),
+        title: const Text(
+          'Добавить изображения',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.blue,
       ),
       body: _buildBody,
     );
@@ -55,13 +60,21 @@ class _AddImageScreenState extends State<AddImageScreen> {
       if (!mounted) return null;
       if (response.statusCode == 200) {
         debugPrint('File uploaded successfully');
-        snackBar(this.context, "Изображение успешно загружено");
+        SnackBarService.showSnackBar(
+          this.context,
+          'Изображение успешно загружено!',
+          false,
+        );
       } else {
         debugPrint('Failed to upload file: ${response.statusCode}');
       }
       Navigator.pop(this.context);
     } catch (e) {
-      snackBar(this.context, "Вы ничего не выбрали");
+      SnackBarService.showSnackBar(
+        this.context,
+        'Вы ничего не выбрали!',
+        true,
+      );
       debugPrint('Error: $e');
     }
     return null;

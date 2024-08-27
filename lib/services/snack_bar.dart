@@ -5,7 +5,7 @@ class SnackBarService {
   static const okColor = Colors.green;
 
   static Future<void> showSnackBar(
-    BuildContext context, String message, bool error) async {
+      BuildContext context, String message, bool error) async {
     ScaffoldMessenger.of(context).removeCurrentSnackBar();
     FocusManager.instance.primaryFocus?.unfocus();
     final snackBar = SnackBar(

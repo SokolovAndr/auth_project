@@ -1,9 +1,9 @@
 import 'package:auth_project/logic/bloc/author_bloc.dart';
+import 'package:auth_project/logic/bloc/author_event.dart';
+import 'package:auth_project/logic/bloc/author_state.dart';
+import 'package:auth_project/services/snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../constants/snack_bar.dart';
-import '../../logic/bloc/author_event.dart';
-import '../../logic/bloc/author_state.dart';
 
 class UpdateAuthorScreen extends StatefulWidget {
   final int id;
@@ -54,7 +54,11 @@ class _UpdateAuthorScreenState extends State<UpdateAuthorScreen> {
           ElevatedButton(
             onPressed: () async {
               if (_authorNameCtrl.text.isEmpty) {
-                snackBar(context, "Введите все данные");
+                SnackBarService.showSnackBar(
+                  context,
+                  'Введите все данные!',
+                  true,
+                );
               } else {
                 context.read<AuthorBloc>().add(UpdateAuthorEvent(context,
                     id: widget.id.toString(), name: _authorNameCtrl.text));

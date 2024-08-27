@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-GenreModel genreModelFromJson(String str) => GenreModel.fromJson(json.decode(str));
+GenreModel genreModelFromJson(String str) =>
+    GenreModel.fromJson(json.decode(str));
 String genreModelToJson(GenreModel data) => json.encode(data.toJson());
-
 
 class GenreModel {
   List<DataGenre> dataGenre;
@@ -40,4 +40,3 @@ class DataGenre {
         "name": name,
       };
 }
-

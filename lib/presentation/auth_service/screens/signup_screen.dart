@@ -79,93 +79,100 @@ class _SignUpScreen extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: Colors.blue,
-        title: const Text('Зарегистрироваться',style: TextStyle(color: Colors.white),),
+        title: const Text(
+          'Зарегистрироваться',
+          style: TextStyle(color: Colors.white),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(30.0),
         child: Form(
           key: formKey,
-          child: Column(
-            children: [
-              TextFormField(
-                keyboardType: TextInputType.emailAddress,
-                autocorrect: false,
-                controller: emailTextInputController,
-                validator: (email) =>
-                    email != null && !EmailValidator.validate(email)
-                        ? 'Введите правильный Email'
+          child: Center(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TextFormField(
+                    keyboardType: TextInputType.emailAddress,
+                    autocorrect: false,
+                    controller: emailTextInputController,
+                    validator: (email) =>
+                        email != null && !EmailValidator.validate(email)
+                            ? 'Введите правильный Email'
+                            : null,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Введите Email',
+                    ),
+                  ),
+                  const SizedBox(height: 30),
+                  TextFormField(
+                    autocorrect: false,
+                    controller: passwordTextInputController,
+                    obscureText: isHiddenPassword,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    validator: (value) => value != null && value.length < 6
+                        ? 'Минимум 6 символов'
                         : null,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Введите Email',
-                ),
-              ),
-              const SizedBox(height: 30),
-              TextFormField(
-                autocorrect: false,
-                controller: passwordTextInputController,
-                obscureText: isHiddenPassword,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (value) => value != null && value.length < 6
-                    ? 'Минимум 6 символов'
-                    : null,
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
-                  hintText: 'Введите пароль',
-                  suffix: InkWell(
-                    onTap: togglePasswordView,
-                    child: Icon(
-                      isHiddenPassword
-                          ? Icons.visibility_off
-                          : Icons.visibility,
-                      color: Colors.black,
+                    decoration: InputDecoration(
+                      border: const OutlineInputBorder(),
+                      hintText: 'Введите пароль',
+                      suffix: InkWell(
+                        onTap: togglePasswordView,
+                        child: Icon(
+                          isHiddenPassword
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                          color: Colors.black,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-              const SizedBox(height: 30),
-              TextFormField(
-                autocorrect: false,
-                controller: passwordTextRepeatInputController,
-                obscureText: isHiddenPassword,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (value) => value != null && value.length < 6
-                    ? 'Минимум 6 символов'
-                    : null,
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
-                  hintText: 'Введите пароль еще раз',
-                  suffix: InkWell(
-                    onTap: togglePasswordView,
-                    child: Icon(
-                      isHiddenPassword
-                          ? Icons.visibility_off
-                          : Icons.visibility,
-                      color: Colors.black,
+                  const SizedBox(height: 30),
+                  TextFormField(
+                    autocorrect: false,
+                    controller: passwordTextRepeatInputController,
+                    obscureText: isHiddenPassword,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    validator: (value) => value != null && value.length < 6
+                        ? 'Минимум 6 символов'
+                        : null,
+                    decoration: InputDecoration(
+                      border: const OutlineInputBorder(),
+                      hintText: 'Введите пароль еще раз',
+                      suffix: InkWell(
+                        onTap: togglePasswordView,
+                        child: Icon(
+                          isHiddenPassword
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                          color: Colors.black,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-              const SizedBox(height: 30),
-              ElevatedButton(
-                onPressed: signUp,
-                child: const Center(child: Text('Регистрация')),
-              ),
-              const SizedBox(height: 30),
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: const Text(
-                  'Войти',
-                  style: TextStyle(
-                    decoration: TextDecoration.underline,
+                  const SizedBox(height: 30),
+                  ElevatedButton(
+                    onPressed: signUp,
+                    child: const Center(child: Text('Регистрация')),
                   ),
-                ),
+                  const SizedBox(height: 30),
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: const Text(
+                      'Войти',
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),

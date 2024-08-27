@@ -1,9 +1,9 @@
+import 'package:auth_project/data/model/author_model.dart';
+import 'package:auth_project/logic/bloc/author_bloc.dart';
+import 'package:auth_project/logic/bloc/author_event.dart';
+import 'package:auth_project/logic/bloc/author_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../data/model/author_model.dart';
-import '../../logic/bloc/author_bloc.dart';
-import '../../logic/bloc/author_event.dart';
-import '../../logic/bloc/author_state.dart';
 
 class AuthorsChooseScreen extends StatefulWidget {
   const AuthorsChooseScreen({super.key});

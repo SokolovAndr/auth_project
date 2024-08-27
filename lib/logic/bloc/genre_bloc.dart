@@ -4,7 +4,6 @@ import 'package:auth_project/logic/bloc/genre_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class GenreBloc extends Bloc<GenreEvent, GenreState> {
   final GenreRepository _genreRepository;
 
@@ -15,9 +14,6 @@ class GenreBloc extends Bloc<GenreEvent, GenreState> {
           .addGenreService(event.name)
           .then((value) {
         emit(AddGenreLoading(isLoading: false));
-        /*Future.delayed(const Duration(milliseconds: 500), () {
-          Navigator.pop(event.context);
-        });*/
         Navigator.pop(event.context);
       }).onError((error, stackTrace) {
         emit(AddGenreLoading(isLoading: false));
@@ -35,16 +31,11 @@ class GenreBloc extends Bloc<GenreEvent, GenreState> {
 
     on<UpdateGenreEvent>((event, emit) async {
       emit(UpdateGenreLoading(isLoading: true));
-      //final Map<String, dynamic> data = {"id": event.id, "name": event.name};
 
       await _genreRepository.genreProvider
           .updateGenreService(event.id, event.name)
           .then((value) {
         emit(UpdateGenreLoading(isLoading: false));
-        //snackBar(event.context, "User has been updated");
-        /*Future.delayed(const Duration(milliseconds: 500), () {
-          Navigator.pop(event.context);
-        });*/
         Navigator.pop(event.context);
       }).onError((error, stackTrace) {
         emit(UpdateGenreLoading(isLoading: false));

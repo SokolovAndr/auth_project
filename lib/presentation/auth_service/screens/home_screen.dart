@@ -1,4 +1,4 @@
-import 'package:auth_project/presentation/widgets/navigation_menu_widget.dart';
+import 'package:auth_project/presentation/main_service/widgets/navigation_menu_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'account_screen.dart';
@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          'Главная страница',
+          'Flutter Библиотека',
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.blue,

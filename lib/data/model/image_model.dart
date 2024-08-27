@@ -1,6 +1,7 @@
 import 'dart:convert';
 
-ImageModel imageModelFromJson(String str) => ImageModel.fromJson(json.decode(str));
+ImageModel imageModelFromJson(String str) =>
+    ImageModel.fromJson(json.decode(str));
 String imageModelToJson(ImageModel data) => json.encode(data.toJson());
 
 class ImageModel {
@@ -21,25 +22,25 @@ class ImageModel {
 }
 
 class DataImage {
-    int id;
-    String name;
-    String type;
+  int id;
+  String name;
+  String type;
 
-    DataImage({
-        required this.id,
-        required this.name,
-        required this.type,
-    });
+  DataImage({
+    required this.id,
+    required this.name,
+    required this.type,
+  });
 
-    factory DataImage.fromJson(Map<String, dynamic> json) => DataImage(
+  factory DataImage.fromJson(Map<String, dynamic> json) => DataImage(
         id: json["id"],
         name: json["name"],
         type: json["type"],
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
         "type": type,
-    };
+      };
 }

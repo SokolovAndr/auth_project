@@ -1,5 +1,3 @@
-
-
 import 'package:auth_project/data/model/book_data_model.dart';
 
 abstract class BookState {}

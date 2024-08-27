@@ -1,9 +1,9 @@
-import 'package:auth_project/constants/snack_bar.dart';
 import 'package:auth_project/logic/bloc/author_bloc.dart';
+import 'package:auth_project/logic/bloc/author_event.dart';
+import 'package:auth_project/logic/bloc/author_state.dart';
+import 'package:auth_project/services/snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../logic/bloc/author_event.dart';
-import '../../logic/bloc/author_state.dart';
 
 class AddAuthorScreen extends StatefulWidget {
   const AddAuthorScreen({super.key});
@@ -25,7 +25,12 @@ class _AddAuthorScreenState extends State<AddAuthorScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Добавить автора'),
+        iconTheme: const IconThemeData(color: Colors.white),
+        title: const Text(
+          'Добавить автора',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.blue,
       ),
       body: _buildBody,
     );
@@ -52,7 +57,11 @@ class _AddAuthorScreenState extends State<AddAuthorScreen> {
         ),
         ElevatedButton(onPressed: () {
           if (_authorNameCtrl.text.isEmpty) {
-            snackBar(context, "Введите имя");
+            SnackBarService.showSnackBar(
+              context,
+              'Введите имя!',
+              true,
+            );
           } else {
             context.read<AuthorBloc>().add(
                 AddAuthorEvent(name: _authorNameCtrl.text, context: context));

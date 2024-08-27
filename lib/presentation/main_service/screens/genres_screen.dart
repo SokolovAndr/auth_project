@@ -1,9 +1,9 @@
 import 'package:auth_project/data/model/genre_model.dart';
 import 'package:auth_project/logic/bloc/genre_bloc.dart';
+import 'package:auth_project/logic/bloc/genre_event.dart';
+import 'package:auth_project/logic/bloc/genre_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../logic/bloc/genre_event.dart';
-import '../../logic/bloc/genre_state.dart';
 import 'add_genre_screen.dart';
 import 'update_genre_screen.dart';
 

@@ -6,13 +6,14 @@ class StateA extends NavigationState {
   final int index = 0;
 }
 
-
-class StateC extends NavigationState {
+class StateB extends NavigationState {
   final int index = 1;
 }
-class StateD extends NavigationState {
+
+class StateC extends NavigationState {
   final int index = 2;
 }
-class StateE extends NavigationState {
+
+class StateD extends NavigationState {
   final int index = 3;
 }

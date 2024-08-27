@@ -1,12 +1,12 @@
 import 'package:auth_project/data/model/book_data_model.dart';
 import 'package:auth_project/data/model/book_model.dart';
 import 'package:auth_project/logic/bloc/book_bloc.dart';
+import 'package:auth_project/logic/bloc/book_event.dart';
+import 'package:auth_project/logic/bloc/book_state.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import '../../logic/bloc/book_event.dart';
-import '../../logic/bloc/book_state.dart';
 import 'add_book_screen.dart';
 import 'update_book_screen.dart';
 

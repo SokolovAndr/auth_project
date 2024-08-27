@@ -1,5 +1,3 @@
-
-
 import 'package:auth_project/data/model/author_model.dart';
 
 abstract class AuthorState {}

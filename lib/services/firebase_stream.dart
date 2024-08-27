@@ -1,5 +1,5 @@
-import 'package:auth_project/screens/home_screen.dart';
-import 'package:auth_project/screens/verify_email_screen.dart';
+import 'package:auth_project/presentation/auth_service/screens/home_screen.dart';
+import 'package:auth_project/presentation/auth_service/screens/verify_email_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

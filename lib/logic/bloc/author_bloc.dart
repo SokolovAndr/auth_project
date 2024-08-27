@@ -10,11 +10,10 @@ class AuthorBloc extends Bloc<AuthorEvent, AuthorState> {
   AuthorBloc(this._authorRepository) : super(LogicInitializeState()) {
     on<AddAuthorEvent>((event, emit) async {
       emit(AddAuthorLoading(isLoading: true));
-      await _authorRepository.authorProvider.addAuthorService(event.name).then((value) {
+      await _authorRepository.authorProvider
+          .addAuthorService(event.name)
+          .then((value) {
         emit(AddAuthorLoading(isLoading: false));
-        /*Future.delayed(const Duration(milliseconds: 500), () {
-          Navigator.pop(event.context);
-        });*/
         Navigator.pop(event.context);
       }).onError((error, stackTrace) {
         emit(AddAuthorLoading(isLoading: false));
@@ -32,14 +31,10 @@ class AuthorBloc extends Bloc<AuthorEvent, AuthorState> {
 
     on<UpdateAuthorEvent>((event, emit) async {
       emit(UpdateAuthorLoading(isLoading: true));
-      //final Map<String, dynamic> data = {"id": event.id, "name": event.name};
-
-      await _authorRepository.authorProvider.updateAuthorService(event.id, event.name).then((value) {
+      await _authorRepository.authorProvider
+          .updateAuthorService(event.id, event.name)
+          .then((value) {
         emit(UpdateAuthorLoading(isLoading: false));
-        //snackBar(event.context, "User has been updated");
-        /*Future.delayed(const Duration(milliseconds: 500), () {
-          Navigator.pop(event.context);
-        });*/
         Navigator.pop(event.context);
       }).onError((error, stackTrace) {
         emit(UpdateAuthorLoading(isLoading: false));
@@ -48,7 +43,9 @@ class AuthorBloc extends Bloc<AuthorEvent, AuthorState> {
 
     on<DeleteAuthorEvent>((event, emit) async {
       emit(DeleteAuthorLoading(isLoading: true));
-      await _authorRepository.authorProvider.deleteAuthorService(event.id).then((value) {
+      await _authorRepository.authorProvider
+          .deleteAuthorService(event.id)
+          .then((value) {
         emit(DeleteAuthorLoading(isLoading: false));
       }).onError((error, stackTrace) {
         emit(DeleteAuthorLoading(isLoading: false));

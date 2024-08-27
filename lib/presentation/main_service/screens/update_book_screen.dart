@@ -1,13 +1,13 @@
 import 'package:auth_project/data/model/author_model.dart';
 import 'package:auth_project/data/model/book_model.dart';
+import 'package:auth_project/data/model/genre_model.dart';
 import 'package:auth_project/data/model/image_model.dart';
+import 'package:auth_project/logic/bloc/book_bloc.dart';
+import 'package:auth_project/logic/bloc/book_event.dart';
+import 'package:auth_project/services/snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../constants/snack_bar.dart';
-import '../../data/model/genre_model.dart';
-import '../../logic/bloc/book_bloc.dart';
-import '../../logic/bloc/book_event.dart';
-import '../../logic/bloc/book_state.dart';
+import '../../../logic/bloc/book_state.dart';
 import 'authors_choose_screen.dart';
 import 'genres_choose_screen.dart';
 import 'images_choose_screen.dart';
@@ -181,7 +181,11 @@ class _UpdateBookScreenState extends State<UpdateBookScreen> {
                   _bookDescriptionCtrl.text.isEmpty ||
                   _bookAuthorIdCtrl.text.isEmpty ||
                   _bookGenreIdCtrl.text.isEmpty) {
-                snackBar(context, "Введите все данные");
+                SnackBarService.showSnackBar(
+                  context,
+                  'Введите все данные!',
+                  true,
+                );
               } else {
                 context.read<BookBloc>().add(UpdateBookEvent(context,
                     id: widget.id.toString(),

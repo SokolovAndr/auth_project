@@ -1,5 +1,3 @@
-
-
 import 'package:auth_project/data/model/image_model.dart';
 
 abstract class ImageState {}

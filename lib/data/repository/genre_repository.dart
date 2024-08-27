@@ -1,5 +1,3 @@
-
-
 import 'package:auth_project/data/model/genre_model.dart';
 import 'package:auth_project/data/provider/genre_provider.dart';
 

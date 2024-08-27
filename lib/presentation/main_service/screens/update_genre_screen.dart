@@ -1,9 +1,9 @@
+import 'package:auth_project/logic/bloc/genre_bloc.dart';
+import 'package:auth_project/logic/bloc/genre_event.dart';
+import 'package:auth_project/logic/bloc/genre_state.dart';
+import 'package:auth_project/services/snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../constants/snack_bar.dart';
-import '../../logic/bloc/genre_bloc.dart';
-import '../../logic/bloc/genre_event.dart';
-import '../../logic/bloc/genre_state.dart';
 
 class UpdateGenreScreen extends StatefulWidget {
   final int id;
@@ -54,7 +54,11 @@ class _UpdateGenreScreenState extends State<UpdateGenreScreen> {
           ElevatedButton(
             onPressed: () async {
               if (_genreNameCtrl.text.isEmpty) {
-                snackBar(context, "Введите все данные");
+                SnackBarService.showSnackBar(
+                  context,
+                  'Введите все данные!',
+                  true,
+                );
               } else {
                 context.read<GenreBloc>().add(UpdateGenreEvent(context,
                     id: widget.id.toString(), name: _genreNameCtrl.text));

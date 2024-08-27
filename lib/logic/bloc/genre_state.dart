@@ -1,4 +1,3 @@
-
 import 'package:auth_project/data/model/genre_model.dart';
 
 abstract class GenreState {}

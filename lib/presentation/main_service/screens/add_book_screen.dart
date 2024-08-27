@@ -2,13 +2,13 @@ import 'package:auth_project/data/model/author_model.dart';
 import 'package:auth_project/data/model/genre_model.dart';
 import 'package:auth_project/data/model/image_model.dart';
 import 'package:auth_project/logic/bloc/book_bloc.dart';
-import 'package:auth_project/presentation/screens/genres_choose_screen.dart';
-import 'package:auth_project/presentation/screens/images_choose_screen.dart';
+import 'package:auth_project/logic/bloc/book_event.dart';
+import 'package:auth_project/logic/bloc/book_state.dart';
+import 'package:auth_project/presentation/main_service/screens/genres_choose_screen.dart';
+import 'package:auth_project/presentation/main_service/screens/images_choose_screen.dart';
+import 'package:auth_project/services/snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../constants/snack_bar.dart';
-import '../../logic/bloc/book_event.dart';
-import '../../logic/bloc/book_state.dart';
 import 'authors_choose_screen.dart';
 
 class AddBookScreen extends StatefulWidget {
@@ -39,7 +39,12 @@ class _AddBookScreenState extends State<AddBookScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Добавить книгу'),
+        iconTheme: const IconThemeData(color: Colors.white),
+        title: const Text(
+          'Добавить книгу',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.blue,
       ),
       body: _buildBody,
     );
@@ -159,7 +164,11 @@ class _AddBookScreenState extends State<AddBookScreen> {
               _bookAuthorCtrl.text.isEmpty ||
               _bookGenreCtrl.text.isEmpty ||
               _bookImageCtrl.text.isEmpty) {
-            snackBar(context, "Введите все данные");
+            SnackBarService.showSnackBar(
+              context,
+              'Введите все данные!',
+              true,
+            );
           } else {
             context.read<BookBloc>().add(AddBookEvent(
                 context: context,

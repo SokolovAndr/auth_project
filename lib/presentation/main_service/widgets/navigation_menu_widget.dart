@@ -1,8 +1,8 @@
-import 'package:auth_project/presentation/screens/genres_screen.dart';
-import 'package:auth_project/presentation/screens/images_screen.dart';
+import 'package:auth_project/logic/cubit/navigation_cubit.dart';
+import 'package:auth_project/presentation/main_service/screens/genres_screen.dart';
+import 'package:auth_project/presentation/main_service/screens/images_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../logic/cubit/navigation_cubit.dart';
 import '../screens/books_screen.dart';
 import '../screens/authors_screen.dart';
 

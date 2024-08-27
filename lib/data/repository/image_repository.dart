@@ -1,5 +1,3 @@
-
-
 import 'package:auth_project/data/model/image_model.dart';
 import 'package:auth_project/data/provider/image_provider.dart';
 

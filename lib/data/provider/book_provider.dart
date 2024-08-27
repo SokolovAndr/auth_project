@@ -8,8 +8,15 @@ import 'package:http/http.dart' as http;
 import 'package:dio/dio.dart';
 
 class BookProvider {
-  Future<bool> addBookService(String title, String description, int authorId,
-      int genreId, int imageId, DataAuthor autorUi, DataGenre genreUi, DataImage imageUi) async {
+  Future<bool> addBookService(
+      String title,
+      String description,
+      int authorId,
+      int genreId,
+      int imageId,
+      DataAuthor autorUi,
+      DataGenre genreUi,
+      DataImage imageUi) async {
     try {
       http.Response response =
           await http.post(Uri.parse("http://10.0.2.2:5080/Book"),
@@ -46,8 +53,16 @@ class BookProvider {
     }
   }
 
-  Future<bool> updateBookService(String id, String title, String description,
-      int authorId, int genreId, int imageId, DataAuthor autorUi, DataGenre genreUi, DataImage imageUi) async {
+  Future<bool> updateBookService(
+      String id,
+      String title,
+      String description,
+      int authorId,
+      int genreId,
+      int imageId,
+      DataAuthor autorUi,
+      DataGenre genreUi,
+      DataImage imageUi) async {
     try {
       http.Response response =
           await http.put(Uri.parse("http://10.0.2.2:5080/Book/$id"),
