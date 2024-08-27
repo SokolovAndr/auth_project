@@ -1,7 +1,6 @@
 import 'package:auth_project/presentation/widgets/navigation_menu_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'account_screen.dart';
 import 'login_screen.dart';
 

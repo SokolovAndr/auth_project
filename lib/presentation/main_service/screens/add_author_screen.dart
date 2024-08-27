@@ -1,23 +1,23 @@
+import 'package:auth_project/constants/snack_bar.dart';
+import 'package:auth_project/logic/bloc/author_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../constants/snack_bar.dart';
-import '../../logic/bloc/genre_bloc.dart';
-import '../../logic/bloc/genre_event.dart';
-import '../../logic/bloc/genre_state.dart';
+import '../../logic/bloc/author_event.dart';
+import '../../logic/bloc/author_state.dart';
 
-class AddGenreScreen extends StatefulWidget {
-  const AddGenreScreen({super.key});
+class AddAuthorScreen extends StatefulWidget {
+  const AddAuthorScreen({super.key});
 
   @override
-  State<AddGenreScreen> createState() => _AddGenreScreenState();
+  State<AddAuthorScreen> createState() => _AddAuthorScreenState();
 }
 
-class _AddGenreScreenState extends State<AddGenreScreen> {
-  final TextEditingController _genreNameCtrl = TextEditingController();
+class _AddAuthorScreenState extends State<AddAuthorScreen> {
+  final TextEditingController _authorNameCtrl = TextEditingController();
 
   @override
   void dispose() {
-    _genreNameCtrl.dispose();
+    _authorNameCtrl.dispose();
     super.dispose();
   }
 
@@ -25,7 +25,7 @@ class _AddGenreScreenState extends State<AddGenreScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Добавить жанр'),
+        title: const Text('Добавить автора'),
       ),
       body: _buildBody,
     );
@@ -39,35 +39,35 @@ class _AddGenreScreenState extends State<AddGenreScreen> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: TextField(
-            controller: _genreNameCtrl,
+            controller: _authorNameCtrl,
             decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
-                hintText: "Название"),
+                hintText: "Имя"),
           ),
         ),
         const SizedBox(
           height: 15,
         ),
         ElevatedButton(onPressed: () {
-          if (_genreNameCtrl.text.isEmpty) {
-            snackBar(context, "Введите название");
+          if (_authorNameCtrl.text.isEmpty) {
+            snackBar(context, "Введите имя");
           } else {
-            context.read<GenreBloc>().add(
-                AddGenreEvent(name: _genreNameCtrl.text, context: context));
+            context.read<AuthorBloc>().add(
+                AddAuthorEvent(name: _authorNameCtrl.text, context: context));
           }
         }, child:
-            BlocBuilder<GenreBloc, GenreState>(builder: (context, state) {
-          if (state is AddGenreLoading) {
+            BlocBuilder<AuthorBloc, AuthorState>(builder: (context, state) {
+          if (state is AddAuthorLoading) {
             bool isLoading = state.isLoading;
             return isLoading
                 ? const CircularProgressIndicator(
                     color: Colors.white,
                   )
-                : const Text("Добавить жанр");
+                : const Text("Добавить автора");
           } else {
-            return const Text("Добавить жанр");
+            return const Text("Добавить автора");
           }
         }))
       ],

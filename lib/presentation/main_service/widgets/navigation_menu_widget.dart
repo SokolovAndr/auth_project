@@ -2,10 +2,8 @@ import 'package:auth_project/presentation/screens/genres_screen.dart';
 import 'package:auth_project/presentation/screens/images_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../logic/cubit/navigation_cubit.dart';
 import '../screens/books_screen.dart';
-
 import '../screens/authors_screen.dart';
 
 class NavigationMenuWidget extends StatelessWidget {
@@ -69,11 +67,11 @@ class NavigationMenuWidget extends StatelessWidget {
         builder: (_, state) {
           if (state is StateA) {
             return const BooksScreen();
-          } else if (state is StateC) {
+          } else if (state is StateB) {
             return const AuthorsScreen();
-          } else if (state is StateD) {
+          } else if (state is StateC) {
             return const GenresScreen();
-          } else if (state is StateE) {
+          } else if (state is StateD) {
             return const ImagesScreen();
           }
           return const SizedBox();

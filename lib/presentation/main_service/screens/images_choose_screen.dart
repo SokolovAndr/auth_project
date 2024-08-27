@@ -5,7 +5,6 @@ import 'package:auth_project/logic/bloc/image_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class ImagesChooseScreen extends StatefulWidget {
   const ImagesChooseScreen({super.key});
 
@@ -64,8 +63,7 @@ class _ImagesChooseScreenState extends State<ImagesChooseScreen> {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () async {
-                Navigator.pop<DataImage>(
-                    context, imageModel.dataImage[index]);
+                Navigator.pop<DataImage>(context, imageModel.dataImage[index]);
               },
               child: ListTile(
                 leading: Text(imageModel.dataImage[index].id.toString()),

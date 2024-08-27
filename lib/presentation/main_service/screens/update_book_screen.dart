@@ -3,7 +3,6 @@ import 'package:auth_project/data/model/book_model.dart';
 import 'package:auth_project/data/model/image_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../constants/snack_bar.dart';
 import '../../data/model/genre_model.dart';
 import '../../logic/bloc/book_bloc.dart';

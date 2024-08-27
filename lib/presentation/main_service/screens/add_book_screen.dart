@@ -6,7 +6,6 @@ import 'package:auth_project/presentation/screens/genres_choose_screen.dart';
 import 'package:auth_project/presentation/screens/images_choose_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../constants/snack_bar.dart';
 import '../../logic/bloc/book_event.dart';
 import '../../logic/bloc/book_state.dart';

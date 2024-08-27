@@ -2,10 +2,8 @@ import 'package:auth_project/data/model/image_model.dart';
 import 'package:auth_project/logic/bloc/image_bloc.dart';
 import 'package:auth_project/logic/bloc/image_state.dart';
 import 'package:auth_project/presentation/screens/add_image_screen.dart';
-import 'package:auth_project/presentation/screens/update_image_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../logic/bloc/image_event.dart';
 
 class ImagesScreen extends StatefulWidget {
