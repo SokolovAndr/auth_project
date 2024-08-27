@@ -1,5 +1,7 @@
+import 'package:auth_project/presentation/widgets/navigation_menu_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'account_screen.dart';
 import 'login_screen.dart';
 
@@ -36,8 +38,9 @@ class HomeScreen extends StatelessWidget {
               }
             },
             icon: Icon(
-              Icons.person,
-              color: (user == null) ? Colors.black : Colors.white,
+              user == null ?
+              Icons.person_off : Icons.person,
+              color: Colors.white,
             ),
           ),
         ],
@@ -45,10 +48,34 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: (user == null)
-              ? const Text("Контент для НЕ зарегистрированных в системе")
-              : const Text('Контент для ЗАРЕГИСТРИРОВАННЫХ в системе'),
+              ? const NotAuthorizedUserContentWidget()
+              : const NavigationMenuWidget(),
         ),
       ),
+    );
+  }
+}
+
+class NotAuthorizedUserContentWidget extends StatelessWidget {
+  const NotAuthorizedUserContentWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(
+            height: 256,
+            width: 256,
+            child: Image.asset('assets/images/book1.png')),
+        const Padding(padding: EdgeInsets.symmetric(vertical: 25)),
+        const Text(
+          "Пожалуйста авторизуйтесь в системе!",
+          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+        ),
+      ],
     );
   }
 }
